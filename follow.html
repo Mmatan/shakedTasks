@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>ניחוש הקוד</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390, #f6d365);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+      animation: pop 0.6s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #ff6b6b;
+      text-shadow: 1px 1px 2px #ffd93d;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #ff6b6b;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+      transition: 0.3s;
+    }
+    input[type="text"]:focus {
+      border-color: #4ecdc4;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #ff6b6b, #feca57);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>עברתם לדף הבא בהצלחה</h1>
+    <input type="text" id="codeInput" maxlength="6" placeholder="הקלד כאן">
+    <button onclick="checkCode()">בדוק</button>
+  </div>
+
+  <script>
+    const input = document.getElementById("codeInput");
+    
+    // למנוע הכנסת תווים שאינם ספרות
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/\D/g, "");
+    });
+
+    function checkCode() {
+      const code = input.value;
+      if (code === "179615") {
+        alert("כל הכבוד, ניחשת נכון 🎉");
+      } else {
+        alert("התשובה לא נכונה, נא לנסות שנית 😔");
+      }
+    }
+  </script>
+</body>
+</html>
